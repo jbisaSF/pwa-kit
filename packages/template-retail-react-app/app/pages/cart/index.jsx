@@ -12,6 +12,7 @@ import {
     Box,
     Stack,
     Grid,
+    Flex,
     GridItem,
     Container,
     useDisclosure,
@@ -30,6 +31,7 @@ import ProductItem from '@salesforce/retail-react-app/app/components/product-ite
 import ProductViewModal from '@salesforce/retail-react-app/app/components/product-view-modal'
 import BundleProductViewModal from '@salesforce/retail-react-app/app/components/product-view-modal/bundle'
 import RecommendedProducts from '@salesforce/retail-react-app/app/components/recommended-products'
+import CartSelectBonusButton from '@salesforce/retail-react-app/app/pages/cart/partials/cart-select-bonus-button'
 
 // Hooks
 import {useToast} from '@salesforce/retail-react-app/app/hooks/use-toast'
@@ -418,6 +420,10 @@ const Cart = () => {
             })
         )
     }
+
+    const handleBonusButtonClick = () => {
+        console.log('Bonus button clicked!')
+    }
     /***************************** Update Cart **************************/
 
     /***************************** Update quantity **************************/
@@ -588,6 +594,8 @@ const Cart = () => {
                                             />
                                         )
                                     })}
+
+                                    <CartSelectBonusButton onClick={handleBonusButtonClick} />
                                 </Stack>
                                 <Box>
                                     {isOpen && !selectedItem.bundledProductItems && (
